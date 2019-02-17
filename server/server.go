@@ -178,7 +178,7 @@ func randTime(n ...int64) int {
 }
 
 
-// make the request handler chain:
+// Serve: make the request handler chain:
 // log -> authentication -> gzip -> original handler
 // TODO: add ip filter: log -> [ip filter] -> authentication -> gzip -> original handler
 func (this *RanServer) Serve() http.HandlerFunc {
@@ -248,7 +248,7 @@ func (this *RanServer) Serve() http.HandlerFunc {
 }
 
 
-// redirect to https page
+// RedirectToHTTPS: redirect to https page
 func (this *RanServer) RedirectToHTTPS(port uint) http.HandlerFunc {
     handler := this.logHandler(hhelper.RedirectToHTTPS(port))
     return func(w http.ResponseWriter, r *http.Request) {

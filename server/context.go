@@ -22,7 +22,7 @@ type context struct {
 }
 
 
-// String() is used for log output
+// String: String is used for log output
 func (c *context) String() string {
     return fmt.Sprintf("cleanPath: %s, url: %s, absFilePath: %s, exist: %t, isDir: %t, indexPath: %s",
         c.cleanPath, c.url, c.absFilePath, c.exist, c.isDir, c.indexPath)

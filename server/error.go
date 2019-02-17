@@ -7,7 +7,7 @@ import "path"
 import hhelper "github.com/m3ng9i/go-utils/http"
 
 
-// Write http error, accrording status code and msg, return number of bytes write to ResponseWriter.
+// ErrorEx writes http error, accrording status code and msg, return number of bytes write to ResponseWriter.
 // Parameter msg is a string contains html, could be ignored.
 func ErrorEx(w http.ResponseWriter, code int, title, msg string) int64 {
     status := http.StatusText(code)
@@ -34,13 +34,13 @@ func ErrorEx(w http.ResponseWriter, code int, title, msg string) int64 {
 }
 
 
-// A convenient way to call ErrorEx()
+// Error: A convenient way to call ErrorEx()
 func Error(w http.ResponseWriter, code int) int64 {
     return ErrorEx(w, code, "", "")
 }
 
 
-// Write 404 file to client.
+// ErrorFile404 writes 404 file to client.
 // abspath is path of 404 file.
 func ErrorFile404(w http.ResponseWriter, abspath string) (int64, error) {
 
